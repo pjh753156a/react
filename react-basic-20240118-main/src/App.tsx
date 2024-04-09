@@ -10,6 +10,7 @@ import ConditionalRendering from './component_manage/ConditionalRendering';
 import ListRendering from './component_manage/ListRendering';
 import EventComponent from './interaction/EventComponent';
 import StateComponent from './interaction/StateComponent';
+import ForwordingStateComponent from './interaction/ForwordingStateComponent';
 
 // JSX / TSX : 
 // JSX (JavaScript XML) / TSX (TypeScript XML)
@@ -84,8 +85,9 @@ function App() {
       {/* <Properties /> */}
       {/* <ConditionalRendering /> */}
       {/* <ListRendering /> */}
-      <EventComponent/>
-      <StateComponent/>
+      {/* <EventComponent/>
+      <StateComponent/> */}
+      <ForwordingStateComponent />
     </>
   );
 }

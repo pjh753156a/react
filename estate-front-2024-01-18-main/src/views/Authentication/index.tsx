@@ -2,8 +2,8 @@ import React, { ChangeEvent, useState } from "react";
 import "./style.css";
 
 import SignInBackground from 'assets/image/sign-in-background.png';
-import SignUpBackground from 'assets/image/sign-up-background.png';
-import InputBox from "components/Inputbox";
+import SignUpBackground from 'assets/image/sign-up-background.png'; 
+import InputBox from "components/Inputbox"; 
 
 //                    type                    //
 type AuthPage = 'sign-in' | 'sign-up';
@@ -19,12 +19,12 @@ function SnsContainer({ title }: SnsContainerProps) {
     //                    event handler                    //
     const onSnsButtonClickHandler = (type: 'kakao' | 'naver') => {
         alert(type);
-    };
+    }; 
 
     //                    render                    //
     return (
         <div className="authentication-sns-container">
-            <div className="sns-container-title label">{title}</div>
+            <div className="sns-container-title label">{title}</div> 
             <div className="sns-button-container">
                 <div className="sns-button kakao-button" onClick={() => onSnsButtonClickHandler('kakao')}></div>
                 <div className="sns-button naver-button" onClick={() => onSnsButtonClickHandler('naver')}></div>
@@ -68,17 +68,18 @@ function SignIn({ onLinkClickHandler }: Props) {
                 <InputBox label="비밀번호" type="password" value={password} placeholder="비밀번호를 입력해주세요" onChangeHandler={onPasswordChangeHandler} />
             </div>
             <div className="authentication-button-container">
-                <div className="primary-button full-width" onClick={onSignInButtonClickHandler}>로그인</div>  //!!!여기부터
-                <div className="text-link" onClick={onLinkClickHandler}>회원가입</div>
+                <div className="primary-button full-width" onClick={onSignInButtonClickHandler}>로그인</div>  
+                <div className="text-link" onClick={onLinkClickHandler}>회원가입</div> 
             </div>
             <div className="short-divider"></div>
             <SnsContainer title="SNS 로그인" />
         </div>
     );
-}
+}//!!여기까지
 
 //                    component                    //
-function SignUp({ onLinkClickHandler }: Props) {
+function SignUp({ onLinkClickHandler }: Props) 
+{
 
     //                    state                    //
     const [id, setId] = useState<string>('');
@@ -89,14 +90,14 @@ function SignUp({ onLinkClickHandler }: Props) {
 
     const [idButtonStatus, setIdButtonStatus] = useState<boolean>(false);
     const [emailButtonStatus, setEmailButtonStatus] = useState<boolean>(false);
-    const [authNumberButtonStatus, setAuthNumberButtonStatus] = useState<boolean>(false);
+    const [authNumberButtonStatus, setAuthNumberButtonStatus] = useState<boolean>(false); //!!!여기까지
 
     //                    event handler                    //
     const onIdChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
         setId(value);
         setIdButtonStatus(value !== '');
-    };
+    }; //!!!여기까지
 
     const onPasswordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
@@ -123,7 +124,7 @@ function SignUp({ onLinkClickHandler }: Props) {
     const onIdButtonClickHandler = () => {
         if(!idButtonStatus) return;
         alert(id);
-    };
+    }; //!!!완료
 
     const onEmailButtonClickHandler = () => {
         if(!emailButtonStatus) return;
@@ -142,13 +143,15 @@ function SignUp({ onLinkClickHandler }: Props) {
     //                    render                    //
     return (
         <div className="authentication-contents">
-            <SnsContainer title="SNS 회원가입" />
+            <SnsContainer title="SNS 회원가입" /> 
             <div className="short-divider"></div>
             <div className="authentication-input-container">
 
                 <InputBox label="아이디" type="text" value={id} placeholder="아이디를 입력해주세요" onChangeHandler={onIdChangeHandler} buttonTitle="중복 확인" buttonStatus={idButtonStatus} onButtonClickHandler={onIdButtonClickHandler} />
+                
 
                 <InputBox label="비밀번호" type="password" value={password} placeholder="비밀번호를 입력해주세요" onChangeHandler={onPasswordChangeHandler} />
+                //!!!여기까지
 
                 <InputBox label="비밀번호 확인" type="password" value={passwordCheck} placeholder="비밀번호를 입력해주세요" onChangeHandler={onPasswordCheckChangeHandler} />
 
@@ -183,7 +186,7 @@ export default function Authentication() {
             <SignIn onLinkClickHandler={onLinkClickHandler} /> : 
             <SignUp onLinkClickHandler={onLinkClickHandler} />;
     
-    const imageBoxStyle = { backgroundImage: `url(${page === 'sign-in' ? SignInBackground : SignUpBackground})` };
+    const imageBoxStyle = { backgroundImage: `url(${page === 'sign-in' ? SignInBackground : SignUpBackground})` };  //!!!
 
     //                    render                    //
     return (
@@ -199,4 +202,4 @@ export default function Authentication() {
             </div>
         </div>
     );
-}
+} //!!여기까지

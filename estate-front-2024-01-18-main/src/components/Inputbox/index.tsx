@@ -26,7 +26,7 @@ export default function InputBox({ label, type, value, placeholder, onChangeHand
                     value={value}
                     placeholder={placeholder}
                     onChange={onChangeHandler}
-                />
+                /> 
                 { buttonTitle && 
                 <div className={buttonClass} onClick={onButtonClickHandler}>
                     {buttonTitle}
@@ -36,4 +36,4 @@ export default function InputBox({ label, type, value, placeholder, onChangeHand
             <div className="input-message"></div>
         </div>
     );
-}
+}//!!!여기까지

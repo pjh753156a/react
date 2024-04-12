@@ -1,7 +1,8 @@
 import React, { ChangeEvent } from "react";
 import './style.css';
 
-export interface InputBoxProps {
+export interface InputBoxProps 
+{
     label: string;
     type: 'text' | 'password';
     value: string;
@@ -10,11 +11,20 @@ export interface InputBoxProps {
     buttonTitle?: string;
     buttonStatus?: boolean;
     onButtonClickHandler?: () => void;
+    message?: string;
+    error?: boolean;
 }
 
-export default function InputBox({ label, type, value, placeholder, onChangeHandler, buttonTitle, buttonStatus, onButtonClickHandler }: InputBoxProps) {
+export default function InputBox({ label, type, value, placeholder, onChangeHandler, buttonTitle, buttonStatus, onButtonClickHandler, message, error }: InputBoxProps) 
+{
+    // value = admin
+    // buttonStatus = true
+    // isIdCheck = false
+    // message = '이미 사용중인 아이디입니다.';
+    // error = true
 
     const buttonClass = buttonStatus ? 'input-primary-button' : 'input-disable-button';
+    const messageClass = 'input-message ' + (error ? 'error' : 'primary');
 
     return (
         <div className="input-box">
@@ -26,14 +36,19 @@ export default function InputBox({ label, type, value, placeholder, onChangeHand
                     value={value}
                     placeholder={placeholder}
                     onChange={onChangeHandler}
-                /> 
+                />
                 { buttonTitle && 
                 <div className={buttonClass} onClick={onButtonClickHandler}>
                     {buttonTitle}
                 </div> 
                 }
             </div>
-            <div className="input-message"></div>
+            <div className={messageClass}>
+                {message}
+            </div>
         </div>
     );
-}//!!!여기까지
+}
+/*
+!!!복습완료
+*/

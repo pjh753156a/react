@@ -1,4 +1,5 @@
 import React from "react";
+import EventComponent from "../../interaction/EventComponent";
 
 export interface InputBoxProps {
     label: string;
@@ -8,8 +9,10 @@ export interface InputBoxProps {
 }
 
 export default function InputBox({ label, type, placeholder, buttonTitle }: InputBoxProps) {
+
     return (
         <div className="input-box">
+            <EventComponent />
             <div className="input-label label">{label}</div>
             <div className="input-content-box">
                 <input
@@ -17,10 +20,10 @@ export default function InputBox({ label, type, placeholder, buttonTitle }: Inpu
                     type={type}
                     placeholder={placeholder}
                 />
-                {buttonTitle &&
-                    <div className="input-disable-button">
-                        {buttonTitle}
-                    </div>
+                { buttonTitle && 
+                <div className="input-disable-button">
+                    {buttonTitle}
+                </div> 
                 }
             </div>
             <div className="input-message"></div>

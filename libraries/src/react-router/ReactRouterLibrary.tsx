@@ -23,7 +23,7 @@ import React from 'react'
 // - URL 패턴에 따라서 랜더링하고자 하는 컴포넌트를 지정하는 컴포넌트
 // - path 속성: URL 패턴 지정
 // - element 속성 : 랜더링할 컴포넌트 지정
-// - index 속성: 현재 패턴의 기본 라우터로 지정
+// - index 속성: 현재 패턴의 기본 라우터로 지정 --
 
 // http://localhost:3000
 // http://localhost:3000/router
